@@ -46,8 +46,28 @@ class StackBy:
       print("Not yet implemented")
 
     """ Function to stack files based on created date """
-    def created(self, dir = getcwd()):
-      print("Not yet implemented")
+  def created(self, dir = getcwd()):
+      if not isdir(dir):
+          print('Invalid Directory')
+          return
+      #for filename in self.getFiles(dir):
+      entries = (os.path.join(dir, fn) for fn in os.listdir(dir))
+      entries = ((os.stat(path), path) for path in entries)
+      entries = ((stat[ST_CTIME], path)
+                for stat, path in entries if S_ISREG(stat[ST_MODE])) 
+      for cdate, path in sorted(entries):
+            date=time.ctime(cdate)
+            fp=os.path.basename(path)
+            date=date[:8]+date[9]+date[19:]
+            print date, fp
+            file_dir=join(dir,date)
+            file_dir=file_dir.replace(" ","_")
+            if not isdir(file_dir):
+                print("Creating Directory : ",file_dir)
+                makedirs(file_dir)
+            fp=os.path.basename(path)
+            print("Moving : ",fp,"->",file_dir)
+            rename(join(dir,fp),join(file_dir,fp))
       
 if __name__ == '__main__':
   fire.Fire(StackBy)
