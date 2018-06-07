@@ -116,6 +116,7 @@ class StackBy:
             #Move files to the respective directory
             print("Moving : ",fp,"->",file_dir)
             rename(join(dir,fp),join(file_dir,fp))
+            backup(dir, file_dir, fp)
       
 if __name__ == '__main__':
   fire.Fire(StackBy)
