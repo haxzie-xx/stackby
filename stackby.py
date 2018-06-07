@@ -61,17 +61,16 @@ class StackBy:
             fp=os.path.basename(path)
             #String Manipulation included to extract only Date, Month and Year from the 'Time'
             date=date[:8]+date[9]+date[19:]
-            print date, fp
             file_dir=join(dir,date)
             #Replace all the spaces with underscores in the foldername
             file_dir=file_dir.replace(" ","_")
             #check if the folder by the name of Date Created exists, if not, make a new folder
             if not isdir(file_dir):
-                print("Creating Directory : ",file_dir)
+                print("Creating Directory : "+file_dir)
                 makedirs(file_dir)
             fp=os.path.basename(path)
             #Move files to the respective directory
-            print("Moving : ",fp,"->",file_dir)
+            print("Moving : "+fp+" -> "+file_dir)
             rename(join(dir,fp),join(file_dir,fp))
       
 if __name__ == '__main__':
