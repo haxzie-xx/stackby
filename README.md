@@ -9,4 +9,7 @@ pip3 install -r requirements.txt
 ```
 #stack by file extension
 $ python3 stackby.py ext <DIRECTORY_PATH>
+
+#stack by predefined type 
+$ python3 stackby.py type
 ```
