@@ -70,7 +70,7 @@ class StackBy:
                 print("Creating Directory : ",file_dir)
                 makedirs(file_dir)
             fp=os.path.basename(path)
-            #Move files to the inupt directory
+            #Move files to the respective directory
             print("Moving : ",fp,"->",file_dir)
             rename(join(dir,fp),join(file_dir,fp))
       
