@@ -49,36 +49,16 @@ class StackBy:
         else:
           new_file_path = join(fileFormat, extension, File)
         print(" {} - Format:{}  Extension:{}  NewPath:{}".format(File, fileFormat, (extension if extension != '' else 'None'), new_file_path)) 
-        #if the directory doesn't exist,
-        dir_path = dirname(new_file_path)
+        
+		#if the directory doesn't exist,
+        dir_path = join(toDirectory, dirname(new_file_path))
         if not isdir(dir_path):
           print("Creating Directory: ", dir_path)
           #create the new directory
           makedirs(dir_path)
         #finally, move the file to the new extension directory
-        print("Moving: ",old_file_path," -> ",new_file_path)
-        rename(join(fromDirectory, old_file_path), join(toDirectory, new_file_path))
-        
-    
-    #get all the filenames and validate based on extension
-    #this will avoid dotfiles and files with no extensions
-    # for filename in self.getFiles(dir):
-    #   result = re.match(r'^[A-Za-z0-9_\-\\()\s,\.\'@\[\]]+\.([a-zA-Z0-9]+)$', filename)
-    #   if not result:
-    #     continue
-      
-    #   #get the file extension
-    #   extention = result.groups()[0]
-    #   #generate the new directory of the file
-    #   file_dir = join(dir, extention)
-    #   #if the directory doesn't exist,
-    #   if not isdir(file_dir):
-    #     print("Creating Directory: ", file_dir)
-    #     #create the new directory
-    #     makedirs(file_dir)
-    #   #finally, move the file to the new extension directory
-    #   print("Moving: ",filename," -> ",extention,"/",filename)
-    #   rename(join(dir, filename), join(file_dir, filename))
+        print("Moving: ",old_file_path," -> ", new_file_path)
+        rename(join(fromDirectory, File), join(toDirectory, new_file_path))
     
     """ Function to stack files based on type of predetermined filetypes """
     def type(self, dir = getcwd()):
