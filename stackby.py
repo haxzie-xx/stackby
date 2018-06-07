@@ -104,7 +104,7 @@ class StackBy:
             fp=os.path.basename(path)
             #String Manipulation included to extract only Date, Month and Year from the 'Time'
             date=date[:8]+date[9]+date[19:]
-            print date, fp
+            print(date, fp)
             file_dir=join(dir,date)
             #Replace all the spaces with underscores in the foldername
             file_dir=file_dir.replace(" ","_")
