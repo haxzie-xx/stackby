@@ -50,7 +50,6 @@ class StackBy:
       if not isdir(dir):
           print('Invalid Directory')
           return
-      #for filename in self.getFiles(dir):
       entries = (os.path.join(dir, fn) for fn in os.listdir(dir))
       entries = ((os.stat(path), path) for path in entries)
       entries = ((stat[ST_CTIME], path)
