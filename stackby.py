@@ -5,7 +5,7 @@ from os.path import isfile, isdir, join
 class StackBy:
   """ Fire Class for StackBy Operations """
   def __init__(self):
-    print("Welcome to stackby")
+    print("StackBy v0.01 Alpha")
 
   """ Method to return all files in the given directory """
   def getFiles(self, dir):

@@ -1,5 +1,6 @@
 # StackBy [under development]
-Simple python CLI to stack files in a directory based on type, date and extension
+Simple python CLI to stack files in a directory based on type, date and extension.  
+StackBy uses [Google's Fire module](https://github.com/google/python-fire) to make the command line interface. refer their docs for mode info.
 
 ### Installation
 ```
