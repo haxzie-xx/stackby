@@ -1,6 +1,7 @@
 import fire, re, time
 from os import listdir, getcwd, makedirs, rename, rmdir, stat
-from os.path import isfile, isdir, join
+from os.path import isfile, isdir, join, basename
+from stat import S_ISREG, ST_MODE, ST_CTIME
 
 """ Method to create backup log in .stackby file """
 def backup(source, destination, filename):
