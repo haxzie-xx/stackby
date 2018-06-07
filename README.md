@@ -10,6 +10,9 @@ pip3 install -r requirements.txt
 ```
 #stack by file extension
 $ python3 stackby.py ext <DIRECTORY_PATH>
+
+#stack by creation date
+$ python3 stackby.py created <DIRECTORY_PATH>
 ```
 
 # Contributing
