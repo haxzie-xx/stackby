@@ -29,16 +29,16 @@ class StackBy:
         continue
       
       #get the file extension
-      extention = result.groups()[0]
+      extension = result.groups()[0]
       #generate the new directory of the file
-      file_dir = join(dir, extention)
+      file_dir = join(dir, extension)
       #if the directory doesn't exist,
       if not isdir(file_dir):
-        print("Creating Directory: ", file_dir)
+        print("Creating Directory: "+ file_dir)
         #create the new directory
         makedirs(file_dir)
       #finally, move the file to the new extension directory
-      print("Moving: ",filename," -> ",extention,"/",filename)
+      print("Moving: "+filename+" -> "+extension+"/"+filename)
       rename(join(dir, filename), join(file_dir, filename))
     
     """ Function to stack files based on type of predetermined filetypes """
