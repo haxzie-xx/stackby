@@ -82,7 +82,7 @@ class StackBy:
       #finally, move the file to the new extension directory
       print("Moving: ",filename," -> ",extention,"/",filename)
       rename(join(dir, filename), join(file_dir, filename))
-      #backup(dir, file_dir, filename)
+      backup(dir, file_dir, filename)
     
     """ Function to stack files based on type of predetermined filetypes """
     def type(self, dir = getcwd()):
