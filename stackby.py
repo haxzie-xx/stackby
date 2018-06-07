@@ -27,13 +27,13 @@ class StackBy:
     return files
 
   """ Method to revert stacking of files """
-  def undo(self, dir = getcwd(), n = 1):
+  def undo(self, dir = getcwd(), n = 999999999):
     n = int(n)
     if n > 0:
       try:
         fh = open(dir+'/.stackby','r')
         content = fh.readlines()
-        print(content)
+        #print(content)
         fh.close()
         fh = open(dir+'/.stackby','w+')
         undoList = [] #create a list to store files to undo
