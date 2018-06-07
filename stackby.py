@@ -72,16 +72,16 @@ class StackBy:
         continue
       
       #get the file extension
-      extention = result.groups()[0]
+      extension = result.groups()[0]
       #generate the new directory of the file
-      file_dir = join(dir, extention)
+      file_dir = join(dir, extension)
       #if the directory doesn't exist,
       if not isdir(file_dir):
-        print("Creating Directory: ", file_dir)
+        print("Creating Directory: "+ file_dir)
         #create the new directory
         makedirs(file_dir)
       #finally, move the file to the new extension directory
-      print("Moving: ",filename," -> ",extention,"/",filename)
+      print("Moving: "+filename+" -> "+extension+"/"+filename)
       rename(join(dir, filename), join(file_dir, filename))
       backup(dir, file_dir, filename)
     
@@ -106,16 +106,17 @@ class StackBy:
             #String Manipulation included to extract only Date, Month and Year from the 'Time'
             date=date[:8]+date[9]+date[19:]
             print(date, fp)
+  
             file_dir=join(dir,date)
             #Replace all the spaces with underscores in the foldername
             file_dir=file_dir.replace(" ","_")
             #check if the folder by the name of Date Created exists, if not, make a new folder
             if not isdir(file_dir):
-                print("Creating Directory : ",file_dir)
+                print("Creating Directory : "+file_dir)
                 makedirs(file_dir)
             fp=basename(path)
             #Move files to the respective directory
-            print("Moving : ",fp,"->",file_dir)
+            print("Moving : "+fp+" -> "+file_dir)
             rename(join(dir,fp),join(file_dir,fp))
             backup(dir, file_dir, fp)
       
