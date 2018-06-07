@@ -1,6 +1,17 @@
-import fire, re
-from os import listdir, getcwd, makedirs, rename
+import fire, re, time
+from os import listdir, getcwd, makedirs, rename, rmdir
 from os.path import isfile, isdir, join
+
+""" Method to create backup log in .stackby file """
+def backup(source, destination, filename):
+  try:
+    fh = open(source+'/.stackby','a+')
+    fh.write(str(time.time())+" "+source+" "+destination+" "+filename+"\n")
+    fh.close()
+  except IOError:
+    print("IO Error")
+    fh.close()
+  return
 
 class StackBy:
   """ Fire Class for StackBy Operations """
@@ -13,6 +24,37 @@ class StackBy:
     #add valid file to the array
     files = [filename for filename in listdir(dir) if isfile(join(dir, filename))]
     return files
+
+  """ Method to revert stacking of files """
+  def undo(self, dir = getcwd(), n = 1):
+    n = int(n)
+    if n > 0:
+      try:
+        fh = open(dir+'/.stackby','r')
+        content = fh.readlines()
+        print(content)
+        fh.close()
+        fh = open(dir+'/.stackby','w+')
+        undoList = [] #create a list to store files to undo
+        for data in content[-n:]:
+          undoList.append(data.split())
+        for data in undoList:
+              if isfile(join(data[2], data[3])) and isdir(data[1]):
+                print("Moving back: ",join(data[2], data[3])," -> ",join(data[1], data[3]))
+                rename(join(data[2], data[3]), join(data[1], data[3]))
+                try:
+                  rmdir(data[2])
+                except OSError:
+                  print("cannot delete",data[2],",not an empty directory")
+        fh.writelines(content[:-n])
+        fh.close()
+      except IOError:
+        print("IO Error")
+        fh.close()
+      return
+    else:
+      print("number of files to undo must be greater than 0")
+      return
 
   """ Function to stack the given directory based on extensions"""
   def ext(self, dir = getcwd()):
@@ -40,6 +82,7 @@ class StackBy:
       #finally, move the file to the new extension directory
       print("Moving: ",filename," -> ",extention,"/",filename)
       rename(join(dir, filename), join(file_dir, filename))
+      #backup(dir, file_dir, filename)
     
     """ Function to stack files based on type of predetermined filetypes """
     def type(self, dir = getcwd()):
