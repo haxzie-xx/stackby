@@ -9,15 +9,16 @@ pip3 install -r requirements.txt
 ### Usage
 ```
 #stack by file extension
-$ python3 stackby.py ext <DIRECTORY_PATH>
+$ python3 stackby.py ext [DIRECTORY_PATH]
 
 #undo stacking operation
 $ python3 stackby.py undo [DIRECTORY_PATH] [number of steps to undo]
 $ python3 stackby.py undo ./test 2
-default DIRECTORY_PATH is the present working directory and the default undo stepcount is 1.
+Default DIRECTORY_PATH is the present working directory and by default it reverts all the stacked files in the directory.
+If you want to revert only the last "n" stacked files then provide the value of "n" as command line argument.
 
 #stack by creation date
-$ python3 stackby.py created <DIRECTORY_PATH>
+$ python3 stackby.py created [DIRECTORY_PATH]
 
 ```
 
