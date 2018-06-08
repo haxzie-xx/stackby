@@ -1,8 +1,14 @@
-import fire, re, time
+import fire, re, time, mimetypes
 from os import listdir, getcwd, makedirs, rename, rmdir, stat
 from os.path import isfile, isdir, join, basename
 from stat import S_ISREG, ST_MODE, ST_CTIME
 
+""" Function to list known extension for filetype"""
+def get_extensions_for_type(general_type):
+  for ext in mimetypes.types_map:
+      if mimetypes.types_map[ext].split('/')[0] == general_type:
+          yield ext
+ 
 """ Method to create backup log in .stackby file """
 def backup(source, destination, filename):
   try:
@@ -85,11 +91,28 @@ class StackBy:
       rename(join(dir, filename), join(file_dir, filename))
       backup(dir, file_dir, filename)
     
-    """ Function to stack files based on type of predetermined filetypes """
-    def type(self, dir = getcwd()):
-      print("Not yet implemented")
+  """ Function to stack files based on type of predetermined filetypes """
+  def type(self, dir = getcwd()):
+      list = ['image','video','audio']
+      for type in list:
+        ext = tuple(get_extensions_for_type(type))
+        for current_ext in ext:
+          for filename in self.getFiles(dir):
+            if filename.endswith(current_ext):
+              #generate the new directory of the file
+              file_dir = join(dir, type)
+              #if the directory doesn't exist,
+              if not isdir(file_dir):
+                print("Creating Directory: ", file_dir)
+                #create the new directory
+                makedirs(file_dir)
+              #finally, move the file to the new extension directory
+              print("Moving: ",filename," -> ",type,"/",filename)
+              rename(join(dir, filename), join(file_dir, filename))
+            else:
+              continue
 
-    """ Function to stack files based on created date """
+  """ Function to stack files based on created date """
   def created(self, dir = getcwd()):
       #check if the directory is valid
       if not isdir(dir):
