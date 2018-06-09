@@ -22,6 +22,7 @@ setup(
     maintainer='Musthaq Ahamad',
     maintainer_email='musthu.gm@gmail.com',
     url='https://github.com/haxzie/stackby',
+    download_url='https://github.com/haxzie/stackby/archive/v0.1.tar.gz',
     license='MIT',
     packages=['stackby'],
     entry_points={
