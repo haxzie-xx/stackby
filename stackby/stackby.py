@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import fire
 from os import getcwd
 from scripts import sb_date, sb_type, sb_ext, sb_undo
@@ -24,5 +26,8 @@ class StackBy:
   def date(self, dir = getcwd()):
     sb_date.stackby_date(dir)
 
-if __name__ == '__main__':
+def main():
   fire.Fire(StackBy)
+
+if __name__ == '__main__':
+  main()
