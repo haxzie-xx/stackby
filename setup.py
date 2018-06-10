@@ -10,7 +10,7 @@ setup(
     long_description='python command line appliation to stack and cleanup files into different directories based on type, extension and created date',
     classifiers=[
         "Development Status :: 3 - Alpha",
-        "Environment :: Console",
+        "Environment :: Console",   
         "Intended Audience :: End Users/Desktop",
         "Programming Language :: Python :: 3.6",
         "Topic :: System :: Filesystems",
@@ -24,7 +24,7 @@ setup(
     url='https://github.com/haxzie/stackby',
     download_url='https://github.com/haxzie/stackby/archive/v0.1.tar.gz',
     license='MIT',
-    packages=['stackby'],
+    packages=find_packages(),
     entry_points={
         'console_scripts': [
             'stackby = stackby.stackby:main',
