@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='stackby',
-    version='0.2',
+    version='0.3',
     description='Instant coding answers via the command line',
     long_description='python command line appliation to stack and cleanup files into different directories based on type, extension and created date',
     classifiers=[
@@ -22,7 +22,6 @@ setup(
     maintainer='Musthaq Ahamad',
     maintainer_email='musthu.gm@gmail.com',
     url='https://github.com/haxzie/stackby',
-    download_url='https://github.com/haxzie/stackby/archive/v0.1.tar.gz',
     license='MIT',
     packages=find_packages(),
     entry_points={
