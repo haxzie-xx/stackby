@@ -27,7 +27,8 @@ def stackby_type(dir):
         # Find file/application format dictated by the system
         fileFormat = what_type(old_file_path, mime=True)
        
-        if extension == fileFormat.split("/")[1]:
+       # To handle files without extensions
+        if extension == fileFormat.split("/")[1]: # "/" is not from path just a string 
           new_file_path = join(fileFormat, filename)
         else:
           new_file_path = join(fileFormat, extension, filename)
