@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='stackby',
-    version='0.1',
+    version='0.2',
     description='Instant coding answers via the command line',
     long_description='python command line appliation to stack and cleanup files into different directories based on type, extension and created date',
     classifiers=[
