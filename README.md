@@ -14,7 +14,7 @@ $ sudo -H pip3 install stackby
 ```
 ### Usage
 
-StackBy is a handy CLI tool to make your life easier to clean up your folder with random files. Stack by can create separate subdirectories for files based on their extension, type or created date.
+StackBy is a handy CLI tool to make your life easier to clean up your folder with random files. StackBy can create separate subdirectories for files based on their extension, type or created date.
 
 #### Stack files by their extension  
 CD into the directory to clean up.
