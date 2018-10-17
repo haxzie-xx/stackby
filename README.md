@@ -3,10 +3,9 @@ Python CLI to stack files in a directory based on type, date and extension.
 StackBy uses [Google's Fire module](https://github.com/google/python-fire) to make the command line interface. Refer their docs for mode info.
 
 ### Installing requirement (libmagic)
-**For MacOS users**
-```
-  brew install libmagic
-```  
+**For OSX users**
+Using Homebrew: ```  brew install libmagic ```  
+Using macports: ``` port install file ```   
 
 ### Installation
 Install the package from PyPI
