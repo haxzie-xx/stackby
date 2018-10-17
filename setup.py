@@ -30,6 +30,6 @@ setup(
         ]
     },
     install_requires=[
-        'fire','python-magic',
+        'fire','python-magic','libmagic'
     ]
 )
