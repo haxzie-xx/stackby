@@ -2,7 +2,7 @@
 
 import fire
 from os import getcwd
-from scripts import sb_date, sb_type, sb_ext, sb_undo
+from scripts import sb_date, sb_type, sb_ext, sb_undo, sb_multiple
 
 class StackBy:
   """ Fire Class for StackBy Operations """
@@ -17,14 +17,18 @@ class StackBy:
   """ Function to stack the given directory based on extensions"""
   def ext(self, dir = getcwd()):
    sb_ext.stackby_extension(dir)
-    
+
   """ Function to stack files based on type of predetermined filetypes """
   def type(self, dir = getcwd()):
     sb_type.stackby_type(dir)
-            
+
   """ Function to stack files based on created date """
   def date(self, dir = getcwd()):
     sb_date.stackby_date(dir)
+
+  """ Function to stack files based on multiple categories """
+  def multiple(self, categories, dir = getcwd()):
+     sb_multiple.stackby_multiple_categories(categories,dir)
 
 def main():
   fire.Fire(StackBy)
